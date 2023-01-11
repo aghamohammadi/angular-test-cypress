@@ -1,27 +1,48 @@
-# AngularTestCypress
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
+# Angular CRUD with e2e cypress & cucumber and unit tests 
 
-## Development server
+Create a simple CRUD application with Angular that implements the below model:
+```
+Customer {
+	Firstname
+	Lastname
+	DateOfBirth
+	PhoneNumber
+	Email
+	BankAccountNumber
+}
+```
+
+## Practices and patterns:
+
+- [TDD](https://angular.io/guide/testing)
+- [DDD](https://en.wikipedia.org/wiki/Domain-driven_design)
+- [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development)
+
+
+
+### Validations
+
+- During Create; validate the phone number to be a valid *mobile* number only (use [Google LibPhoneNumber](https://github.com/google/libphonenumber) to validate mobile number).
+
+- A Valid email and a valid account number must be checked before submitting the form.
+
+- Create a Browser local storage in to store list of customers.
+
+- Customers must be unique in database: By `Firstname`, `Lastname` and `DateOfBirth`.
+
+- Email must be unique in the local storage or memory array
+
+
+
+## Running application
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Running end-to-end tests
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `ng e2e` to execute the end-to-end tests via cypress & cucmber.
 
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

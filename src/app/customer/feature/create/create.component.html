@@ -1,0 +1,90 @@
+<form [formGroup]="customerForm"  (ngSubmit)="onSubmit()"  method="post" [attr.data-status]="status">
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <label class="form-label" for="firstname">Firstname<span class="text-danger">*</span></label>
+      <input  formControlName="firstname" class="form-control" type="text" required="" id="firstname"
+        [ngClass]="{'is-invalid': (customerForm.get('firstname')?.invalid && submitted)  || (customerForm.get('firstname')?.invalid && (customerForm.get('firstname')?.dirty || customerForm.get('firstname')?.touched))  }">
+      <div *ngIf="customerForm.get('firstname')?.invalid  && (customerForm.get('firstname')?.dirty || customerForm.get('firstname')?.touched) || submitted"
+        class="invalid-feedback">
+        <div *ngIf="customerForm.get('firstname')?.errors?.['required']">
+          Please enter your firstname!.
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label class="form-label" for="lastname">Lastname<span class="text-danger">*</span></label>
+      <input  formControlName="lastname" class="form-control" type="text" required="" id="lastname"
+        [ngClass]="{'is-invalid':(customerForm.get('lastname')?.invalid && submitted)  || (customerForm.get('lastname')?.invalid  && (customerForm.get('lastname')?.dirty || customerForm.get('lastname')?.touched))}">
+      <div *ngIf="customerForm.get('lastname')?.invalid  && (customerForm.get('lastname')?.dirty || customerForm.get('lastname')?.touched) || submitted"
+        class="invalid-feedback">
+        <div *ngIf="customerForm.get('lastname')?.errors?.['required']">
+          Please enter your lastname!.
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label class="form-label" for="dateOfBirth">Date Of Birth<span class="text-danger">*</span></label>
+      <input  formControlName="dateOfBirth" class="form-control" type="date" required="" id="dateOfBirth"
+        [ngClass]="{'is-invalid':(customerForm.get('dateOfBirth')?.invalid && submitted)  || (customerForm.get('dateOfBirth')?.invalid  && (customerForm.get('dateOfBirth')?.dirty || customerForm.get('dateOfBirth')?.touched))}">
+      <div *ngIf="customerForm.get('dateOfBirth')?.invalid  && (customerForm.get('dateOfBirth')?.dirty || customerForm.get('dateOfBirth')?.touched) || submitted"
+        class="invalid-feedback">
+        <div *ngIf="customerForm.get('dateOfBirth')?.errors?.['required']">
+          Please enter your dateOfBirth!.
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label class="form-label" for="phoneNumber">Phone Number<span class="text-danger">*</span></label>
+      <input  formControlName="phoneNumber" class="form-control" type="text" required="" id="phoneNumber"
+        [ngClass]="{'is-invalid':(customerForm.get('phoneNumber')?.invalid && submitted)  || (customerForm.get('phoneNumber')?.invalid  && (customerForm.get('phoneNumber')?.dirty || customerForm.get('phoneNumber')?.touched))}">
+      <div class="small text-muted">Sample : +442071838750</div>
+        <div *ngIf="customerForm.get('phoneNumber')?.invalid  && (customerForm.get('phoneNumber')?.dirty || customerForm.get('phoneNumber')?.touched) || submitted"
+        class="invalid-feedback">
+        <div *ngIf="customerForm.get('phoneNumber')?.errors?.['required']">
+          Please enter your phoneNumber!.
+        </div>
+        <div *ngIf="customerForm.get('phoneNumber')?.errors?.['wrongNumber']">
+          Please enter valid phoneNumber!.
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label class="form-label" for="email">Email<span class="text-danger">*</span></label>
+      <input  formControlName="email" class="form-control" type="text" required="" id="email"
+        [ngClass]="{'is-invalid':(customerForm.get('email')?.invalid && submitted)  || (customerForm.get('email')?.invalid  && (customerForm.get('email')?.dirty || customerForm.get('email')?.touched))}">
+      <div *ngIf="customerForm.get('email')?.invalid  && (customerForm.get('email')?.dirty || customerForm.get('email')?.touched) || submitted"
+        class="invalid-feedback">
+        <div *ngIf="customerForm.get('email')?.errors?.['required']">
+          Please enter your email!.
+        </div>
+        <div *ngIf="customerForm.get('email')?.errors?.['email']">
+          Please enter valid email!.
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label class="form-label" for="bankAccountNumber">Bank Account Number<span class="text-danger">*</span></label>
+      <input  formControlName="bankAccountNumber" class="form-control" type="text" required="" id="bankAccountNumber"
+        [ngClass]="{'is-invalid':(customerForm.get('bankAccountNumber')?.invalid && submitted)  || (customerForm.get('bankAccountNumber')?.invalid  && (customerForm.get('bankAccountNumber')?.dirty || customerForm.get('bankAccountNumber')?.touched))}">
+      <div *ngIf="customerForm.get('bankAccountNumber')?.invalid  && (customerForm.get('bankAccountNumber')?.dirty || customerForm.get('bankAccountNumber')?.touched) || submitted"
+        class="invalid-feedback">
+        <div *ngIf="customerForm.get('bankAccountNumber')?.errors?.['required']">
+          Please enter your bankAccountNumber!.
+        </div>
+        <div *ngIf="customerForm.get('bankAccountNumber')?.errors?.['wrongIban']">
+          Please enter valid Iranian sheba bank Account Number.
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-success button button-success fw-normal me-2"
+    type="submit">Submit</button>
+<button [routerLink]="['/customer']" class="btn btn-danger button button-danger fw-normal "
+  type="button">Cancel</button>
+
+
+</form>

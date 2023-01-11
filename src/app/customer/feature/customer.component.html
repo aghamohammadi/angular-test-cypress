@@ -1,0 +1,34 @@
+<div class="toolbar py-4 px-2">
+  <button [routerLink]="['/customer/create']" type="button" class="btn btn-outline-primary create-btn">Create</button>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>firstname</th>
+        <th>lastname</th>
+        <th>dateOfBirth</th>
+        <th>phoneNumber</th>
+        <th>email</th>
+        <th>bankAccountNumber</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of customers">
+        <td class="firstname">{{item.firstname}}</td>
+        <td class="lastname">{{item.lastname}}</td>
+        <td class="dateOfBirth">{{item.dateOfBirth | date}}</td>
+        <td class="phoneNumber">{{item.phoneNumber}}</td>
+        <td class="email">{{item.email}}</td>
+        <td class="bankAccountNumber">{{item.bankAccountNumber}}</td>
+        <td class="actions">
+            <button [routerLink]="['/customer/update',item.email]" type="button" class="btn btn-sm mx-1 btn-outline-success btn-update">Update</button>
+            <button (click)="onRemove(item.email)" type="button" class="btn btn-sm mx-1 btn-outline-danger btn-remove">Remove</button>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
